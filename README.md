@@ -8,7 +8,16 @@ The folder structure designed by our software architects ensures adherence to be
 - `app.js`: The main entry point of your application, where you configure the Express app and connect all the pieces.
 - `db.js`: Manages the database connection.
 - `package.json`: Keeps track of npm packages and scripts necessary for your project.
+## 🔧 Environment Setup
 
-This structure provides a solid foundation for building a well-organized, scalable backend service. By separating concerns into dedicated directories and files, your project remains clean, navigable, and easier to debug and extend.
+This project uses environment variables stored in a `.env` file.
+
+To get started:
+
+1. Copy the example file:
+   ```bash
+   cp .env.example .env
+
+The overall structure provides a solid foundation for building a well-organized, scalable backend service. The objective here was to separate concerns into dedicated directories and files, so project remains clean, navigable, and easier to debug and extend.
 
 View the rubric for this assessment [here](https://storage.googleapis.com/hatchways.appspot.com/employers/springboard/student_rubrics/Dog%20Adoption%20Platform%20Rubric.pdf)
