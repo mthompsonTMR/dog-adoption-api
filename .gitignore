@@ -25,3 +25,5 @@ pids
 # IDE folders
 .vscode/
 .idea/
+.env
+node_modules/

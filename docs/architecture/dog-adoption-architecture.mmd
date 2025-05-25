@@ -1,0 +1,34 @@
+flowchart TD
+  %% Client
+  Client[Client (Postman or Frontend UI)]
+  Client -->|HTTP Requests| Server[Express App (app.js)]
+
+  %% Express Server Block
+  subgraph Express_Server
+    Server --> Routes[Router Layer]
+    Routes --> AuthRoutes[Auth Routes]
+    Routes --> DogRoutes[Dog Routes]
+
+    AuthRoutes --> AuthCtrl[Auth Controller]
+    DogRoutes --> DogCtrl[Dog Controller]
+
+    AuthCtrl --> UserModel[User Model (Mongoose)]
+    DogCtrl --> DogModel[Dog Model (Mongoose)]
+
+    Routes --> Middleware[Middleware Layer]
+    Middleware --> AuthCheck[authMiddleware.js]
+    Middleware --> ErrorHandling[errorHandler.js]
+  end
+
+  %% MongoDB Layer
+  subgraph MongoDB_Atlas
+    UserModel --> UsersCollection[Users Collection]
+    DogModel --> DogsCollection[Dogs Collection]
+  end
+
+  %% Testing Layer
+  subgraph Testing_Layer
+    TestSuite[Mocha & Chai Tests]
+    TestSuite --> Server
+    TestSuite --> MongoMock[(Mock or Test DB)]
+  end
